@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Notification as NotificationFacade;
 use Revolution\Laravel\Notification\Mastodon\MastodonChannel;
 use Revolution\Laravel\Notification\Mastodon\MastodonMessage;
 use Revolution\Laravel\Notification\Mastodon\MastodonRoute;
+use Revolution\Mastodon\Contracts\Factory;
 use Tests\TestCase;
 
 class MastodonNotificationTest extends TestCase
@@ -186,7 +187,7 @@ class MastodonNotificationTest extends TestCase
             ->with('mastodon.social')
             ->andReturn($mockDomain);
 
-        $this->app->instance(\Revolution\Mastodon\Contracts\Factory::class, $mockFactory);
+        $this->app->instance(Factory::class, $mockFactory);
 
         $channel = new MastodonChannel;
         $user = new TestUser;
@@ -217,7 +218,7 @@ class MastodonNotificationTest extends TestCase
             ->with('message.mastodon')
             ->andReturn($mockDomain);
 
-        $this->app->instance(\Revolution\Mastodon\Contracts\Factory::class, $mockFactory);
+        $this->app->instance(Factory::class, $mockFactory);
 
         $channel = new MastodonChannel;
         $user = new TestUser;
@@ -250,7 +251,7 @@ class MastodonNotificationTest extends TestCase
             ->with('user-domain.mastodon')
             ->andReturn($mockDomain);
 
-        $this->app->instance(\Revolution\Mastodon\Contracts\Factory::class, $mockFactory);
+        $this->app->instance(Factory::class, $mockFactory);
 
         $channel = new MastodonChannel;
         $user = new TestUserWithDomainAndTokenRouting;
