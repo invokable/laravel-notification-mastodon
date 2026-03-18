@@ -25,7 +25,7 @@
   "require-dev": {
     "revolution/laravel-mastodon-api": "^3.3",
     "laravel/pint": "^1.22",
-    "orchestra/testbench": "^10.3"
+    "orchestra/testbench": "^10.3||^11.0"
   },
   "autoload-dev": {
     "psr-4": {
